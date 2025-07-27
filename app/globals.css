@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 207 84% 30%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 207 84% 30%;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 207 84% 30%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 14.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 14.9%;
+  --muted-foreground: 0 0% 63.9%;
+  --accent: 0 0% 14.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 14.9%;
+  --input: 0 0% 14.9%;
+  --ring: 207 84% 30%;
+}
+
+body {
+  @apply bg-background text-foreground;
+  background-color: #050505;
+  background-image: radial-gradient(circle at 25% 25%, rgba(12, 80, 138, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(12, 80, 138, 0.05) 0%, transparent 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Custom classes */
+.section-divider {
+  position: relative;
+  height: 5rem;
+  overflow: hidden;
+}
+
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(12, 80, 138, 0.3), transparent);
+}
+
+.section-divider::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(12, 80, 138, 0.3), transparent);
+}
+
+.bg-racing-pattern {
+  background-color: #050505;
+  background-image: linear-gradient(rgba(12, 80, 138, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 80, 138, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-gradient-racing {
+  background: linear-gradient(135deg, #050505, #0c1a2a, #050505);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulsing-element {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.section-card {
+  border: 1px solid rgba(12, 80, 138, 0.1);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.section-card:hover {
+  border-color: rgba(12, 80, 138, 0.3);
+  box-shadow: 0 0 20px rgba(12, 80, 138, 0.1);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at center, rgba(12, 80, 138, 0.15) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.diagonal-lines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(12, 80, 138, 0.05) 0,
+    rgba(12, 80, 138, 0.05) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Vertical text for sidebar */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0;
+}
+
+/* Styles pour le header mobile */
+@media (max-width: 767px) {
+  body {
+    padding-top: 0;
+  }
+
+  .fixed-header-space {
+    height: 4rem;
+  }
+}
