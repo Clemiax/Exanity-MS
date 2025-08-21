@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const sponsors = [{ name: "HMS", logo: "/images/sponsor-1.png" }]
+const sponsors = [{ name: "HMS", logo: "/images/sponsor-1.png", url: "https://www.hostmyservers.fr" }]
 
 export default function SponsorSection() {
   return (
@@ -18,13 +18,20 @@ export default function SponsorSection() {
           <div className="flex flex-wrap items-center justify-center gap-12">
             {sponsors.map((sponsor) => (
               <div key={sponsor.name} className="flex h-16 w-40 items-center justify-center">
-                <Image
-                  src={sponsor.logo || "/placeholder.svg"}
-                  alt={sponsor.name}
-                  width={120}
-                  height={60}
-                  className="h-auto max-h-16 w-auto max-w-full opacity-90 transition-all duration-300 hover:opacity-100 hover:scale-105"
-                />
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-transform duration-300 hover:scale-105"
+                >
+                  <Image
+                    src={sponsor.logo || "/placeholder.svg"}
+                    alt={sponsor.name}
+                    width={120}
+                    height={60}
+                    className="h-auto max-h-16 w-auto max-w-full opacity-90 transition-all duration-300 hover:opacity-100"
+                  />
+                </a>
               </div>
             ))}
           </div>
