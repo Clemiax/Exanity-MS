@@ -67,6 +67,18 @@ const drivers = [
     role: "Pilote",
     image: "/images/pp_exanity.png",
   },
+  {
+    id: 12,
+    name: "Stann O.",
+    role: "Pilote",
+    image: "/images/pp_exanity.png",
+  },
+  {
+    id: 13,
+    name: "Laurent D.",
+    role: "Pilote",
+    image: "/images/pp_exanity.png",
+  },
 ]
 
 export default function PilotesPage() {
